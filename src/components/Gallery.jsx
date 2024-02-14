@@ -5,6 +5,13 @@ function Gallery() {
   function add() {
     console.log('hellllloooooo-----------------')
   }
+  let count = 0;
+
+  function countIncrease(e, hello) {
+    count++;
+    console.log(hello, count);
+    console.log(e.target.innerText);
+  }
   const persons = [
     {
       name: 'Haser',
@@ -31,9 +38,10 @@ function Gallery() {
   return (
     <>
       <h1>Gallery</h1>
-      <ul>
-        {persons.map(person => <li>{person.name}</li>)}
-      </ul>
+      <button onClick={(e) => countIncrease(e, 'show this messages')}>
+        Click to increase
+      </button>
+      <p>{count}</p>
       {
         persons.map(person => <Profile name={person.name} imageUrl={person.imageUrl} addProps={add} show={person.show}/>)
       }
